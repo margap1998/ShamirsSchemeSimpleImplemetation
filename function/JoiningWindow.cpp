@@ -101,5 +101,7 @@ void JoiningWindow::joinButtonCallback(Fl_Widget *w, void *p) {
     } catch(std::exception &e) {
         mp->addToLog("Conversion error");
         mp->addToLog(e.what());
+        mp->shares.clear();
+        mp->addToLog("Shares cleared");
     }
 }

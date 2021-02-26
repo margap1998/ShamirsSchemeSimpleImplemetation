@@ -4,7 +4,6 @@
 
 #include "SchemeJoiner.h"
 #include "functions.h"
-#include <cstring>
 #include <cstdio>
 
 SchemeJoiner::SchemeJoiner() = default;
@@ -24,8 +23,8 @@ long SchemeJoiner::joinShares(std::vector<std::pair<int, long>> &points,ILog *wi
     for (auto pair:points){
         sprintf(buf,"Computing factors for (%d, %ld)",pair.first,pair.second);
         wind->addToLog(buf);
-        auto fact = polymonLagrange(xCoords,pair.first,sizePoints,&tmp);
-        res += (long)(pair.second * fact[sizePoints-1]);
+        auto factors = polynomialLagrange(xCoords,pair.first,sizePoints,&tmp);
+        res += (long)(pair.second * factors[sizePoints-1]);
     }
     res = res%p;
     if (res<0) res = p+res;

@@ -31,7 +31,7 @@ inline bool is_prime(long num){
  * @param divider
  * @return vector of factors
  */
-inline std::vector<double> polymonLagrange(std::vector<int> &points,int q, int length,int *divider){
+inline std::vector<double> polynomialLagrange(std::vector<int> &points,int q, int length,int *divider){
 
     std::vector<double>factors(length);
     factors[0] = 1;
@@ -54,7 +54,7 @@ inline std::vector<double> polymonLagrange(std::vector<int> &points,int q, int l
     }
     return factors;
 }
-
+//function that display polynomial
 inline void polyString(std::vector<double> &po, char* _dest){
     int size = po.size();
     sprintf(_dest,"%lf x^%d",po[0],size-1);
